@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class CompositeNumbersWithoutFunction {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter value for A: ");
+        int A = scanner.nextInt();
+
+        System.out.print("Enter value for B: ");
+        int B = scanner.nextInt();
+
+        System.out.print("Composite numbers between " + A + " and " + B + ": ");
+        for (int i = A; i <= B; i++) {
+            boolean isComposite = false;
+            if (i > 1) {
+                for (int j = 2; j * j <= i; j++) {
+                    if (i % j == 0) {
+                        isComposite = true;
+                        break;
+                    }
+                }
+            }
+            if (isComposite) {
+                System.out.print(i + " ");
+            }
+        }
+
+        scanner.close();
+    }
+}

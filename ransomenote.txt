@@ -1,0 +1,35 @@
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Ransomnote: ");
+        String ransomnote= scanner.next();
+        System.out.println("Magazine: ");
+        String magazine=scanner.next();
+        int[] t1=new int[ransomnote.length()];
+        int[] t2=new int[magazine.length()];
+        for(int i=0;i<ransomnote.length();i++){
+            t1[i]=ransomnote.charAt(i);
+        }
+        for(int i=0;i<magazine.length();i++){
+            t2[i]=magazine.charAt(i);
+        }
+        int len=ransomnote.length();
+        int c=0;
+        for(int i=0;i<ransomnote.length();i++){
+            for(int j=0;i<magazine.length();j++){
+                if(t1[i]==t2[j]){
+                    c++;
+                    break;
+                }
+            }
+        }
+        if(len==c){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
+
+
+    }
+}

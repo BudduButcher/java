@@ -1,0 +1,55 @@
+import java.util.Arrays;
+
+public class MeanMedianMode {
+    public static void main(String[] args) {
+        int[] numbers = { 10, 15, 20, 20, 25, 30, 30, 35 };
+
+        // Calculate mean
+        double mean = calculateMean(numbers);
+        System.out.println("Mean: " + mean);
+
+        // Calculate median
+        double median = calculateMedian(numbers);
+        System.out.println("Median: " + median);
+
+        // Calculate mode
+        int mode = calculateMode(numbers);
+        System.out.println("Mode: " + mode);
+    }
+
+    public static double calculateMean(int[] arr) {
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        return (double) sum / arr.length;
+    }
+
+    public static double calculateMedian(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        if (n % 2 == 0) {
+            return (arr[n / 2 - 1] + arr[n / 2]) / 2.0;
+        } else {
+            return arr[n / 2];
+        }
+    }
+
+    public static int calculateMode(int[] arr) {
+        int maxCount = 0;
+        int mode = 0;
+        for (int num : arr) {
+            int count = 0;
+            for (int otherNum : arr) {
+                if (num == otherNum) {
+                    count++;
+                }
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                mode = num;
+            }
+        }
+        return mode;
+    }
+}

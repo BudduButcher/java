@@ -1,0 +1,53 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class ak {
+    public static void main(String[] args){
+        Scanner scanner=new Scanner(System.in);
+        String name,type;
+        int account_no;
+        double balance;
+        System.out.println("Enter the name: ");
+        name=scanner.nextLine();
+        System.out.println("enter the account number: ");
+        account_no=scanner.nextInt();
+        System.out.println("Enter the type of bank account: ");
+        type=scanner.next();
+        System.out.println("enter the balance amount: ");
+        balance= scanner.nextDouble();
+        Bank_Account bank =new Bank_Account(name,account_no,type,balance);
+        bank.deposit(2000);
+        bank.display();
+
+    }
+}
+class Bank_Account{
+    String name,type;
+    int acc_num;
+    double bal;
+    Bank_Account(String n,int a,String t,double b){
+        name=n;
+        acc_num=a;
+        type=t;
+        bal=b;
+    }
+    void deposit(double d){
+        if(d>0) {
+            bal = bal + d;
+        }else{
+                System.out.println("invalid amount");
+            }
+        }
+        void withdraw(double w){
+        if(w>0 &&w<=bal){
+            bal=bal-w;
+        }else {
+            System.out.println("invalid amount");
+        }
+
+            }
+    void display() {
+        System.out.println("Name: "+name);
+        System.out.println("balance: "+bal);
+    }
+}
